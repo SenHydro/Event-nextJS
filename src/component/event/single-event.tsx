@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 function SingleEvent({ data }: any) {
-  const inputEmail = useRef<HTMLInputElement>()
+  const inputEmail = useRef<HTMLInputElement>() as React.MutableRefObject<HTMLInputElement>
   const router = useRouter()
   const [message, setMessage] = useState('')
   //   console.log(router)
