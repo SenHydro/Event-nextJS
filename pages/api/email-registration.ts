@@ -5,10 +5,13 @@ function buildPath() {
   return path.join(process.cwd(), 'data', 'data.json')
 }
 
-function ExtractData(filePath: string) {
+function ExtractData(filePath: any) {
   const jsonData = fs.readFileSync(filePath)
-  // console.log(fs.readFileSync(filePath))
-  const data = JSON.parse(jsonData)
+  console.log(jsonData)
+  // const preData = JSON.stringify(jsonData)
+  // console.log(preData)
+  const data = JSON.parse(jsonData.toString())
+  console.log(data)
   return data
 }
 
