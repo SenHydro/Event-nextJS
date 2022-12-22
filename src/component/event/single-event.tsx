@@ -10,8 +10,7 @@ function SingleEvent({ data }: any) {
 
   const onSubmit = async (e: any) => {
     e.preventDefault()
-    const emailV = inputEmail.current
-    const emailValue = emailV.value
+    let emailValue = inputEmail?.current?.value
     console.log(emailValue)
 
     const eventID = router?.query.id
@@ -19,7 +18,7 @@ function SingleEvent({ data }: any) {
     const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
     // check from frontend
-    if (!emailValue.match(validRegex)) {
+    if (!emailValue?.match(validRegex)) {
       setMessage('Please introduce a correct email address')
     }
 
@@ -41,7 +40,7 @@ function SingleEvent({ data }: any) {
       setMessage(dataOK.message)
 
       // console.log('POST', data)
-      inputEmail.current.value = ''
+      emailValue = ''
       //POST fetch request
       //body, emailValue, eventID
     } catch (e) {
